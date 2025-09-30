@@ -37,15 +37,15 @@ async function handleSignUp(e: React.FormEvent) {
   <section className="relative z-0 min-h-screen flex flex-row items-center justify-center gap-20">
     <div className=" flex flex-rowjustify-center items-center gap-80">
         <div className="flex flex-col">
-          <h1 className="text-9xl font-bold mt-10 ">Nyan-GPT</h1>
+          <h1 className="text-9xl font-bold mt-10 ">Pathos GPT</h1>
           <TextType
             text={[
-              "Learn about me",
+              "I understand you",
               "Talk to me",
               "Have a conversation with me",
-              "Use this cool login page",
-              "Hope you enjoy",
-              "Coffee chat my AI",
+              "I hope I can help you",
+              "I get you",
+              "I got you",
             ]}
             typingSpeed={75}
             pauseDuration={1500}

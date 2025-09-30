@@ -9,6 +9,7 @@ import { authClient } from "~/utils/auth-client";
 import TextType from "~/welcome/TextType"; 
 import {useChat} from "@ai-sdk/react";
 import Message from "~/Message";
+import CameraStream from "~/CameraStream";
 
 export async function loader({ request }: LoaderFunctionArgs) {
   const session = await auth.api.getSession({ headers: request.headers });
@@ -53,22 +54,34 @@ export default function Dashboard() {
   const {messages, sendMessage} = useChat();
   const [input, setinput] = useState("");
 
+  const [emotion, setEmotion] = useState("");
+
 
   async function handleSignOut() {
-    await authClient.signOut();
+    await authClient.signOut({});
     return redirect("/home");
     
     
   }
 
+  const handleSetEmotion = (childMessage: string) => {
+    setEmotion(childMessage);
+  }
+
   return (
     <div className="bg-black w-screen h-screen">
-        <button className="text-white border border-white mt-5 w-20 h-10 text-center justify-center rounded-xl absolute right-5 hover:bg-white hover:text-black" onClick={handleSignOut}>Sign Out</button>
+
+      <div className="fixed top-5 right-5 flex flex-row items-center gap-6">
+                <div className="font-bold text-3xl" onClick={handleSignOut}>Pathos GPT</div>
+                <div className="bg-white w-[1px] h-10"></div>
+                <button className="text-white border  border-white w-20 h-10 text-center justify-center rounded-xl hover:bg-white hover:text-black" onClick={handleSignOut}>Sign Out</button>
+
+      </div>
 
         <div className="flex flex-row items-center justify-center gap-2 pt-100 text-6xl font-thin mb-10">
             <TextType
             text={[
-                "Welcome,",
+                "Welcome,", 
                 "Hi,",
                 "Hello,",
                 "What's good?",
@@ -98,13 +111,17 @@ export default function Dashboard() {
         </div>
       ))}
         </div>
-
+      <div className="fixed top-5 left-5 z-50">
+        <CameraStream analysis={emotion} setAnalysis={setEmotion} />
+      </div>
+      
         <div className="flex justify-center items-center inset-0 sticky pt-60 pb-5">
           <form
             className="flex flex-row gap-2 justify-center items-center"
             onSubmit={(e) => {
+              let AddText = "Really treat me like I am very " + emotion +  " " + input;
               e.preventDefault();
-              sendMessage({ text: input });
+              sendMessage({ text: AddText });
               setinput("");
               return;
             }}
