@@ -12,6 +12,9 @@ export default function CameraStream({analysis, setAnalysis}: CameraStreamProp){
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const [stream, setStream] = useState<MediaStream | null>(null);
 
+  const apiUrl = import.meta.env.VITE_OPENAI_API_KEY;
+
+
   const [loading, setLoading] = useState(false);
   const [errMsg, setErrMsg] = useState<string | null>(null);
   useEffect(() => {
@@ -35,7 +38,7 @@ export default function CameraStream({analysis, setAnalysis}: CameraStreamProp){
 useEffect(() => {
     const interval = setInterval(() => {
         captureAndAnalyze();
-    }, 5000);
+    }, 1000);
     return () => clearInterval(interval);
 }, []);
 
@@ -57,6 +60,7 @@ useEffect(() => {
       const dataUrl = c.toDataURL("image/png");
 
       const openai = new OpenAI({
+        apiKey: apiUrl,
         dangerouslyAllowBrowser: true,
       });
 
@@ -88,6 +92,7 @@ useEffect(() => {
       <video className="rounded-4xl" ref={videoRef} autoPlay playsInline />
       <canvas ref={canvasRef} style={{ display: "none" }} />
       <div className="text-black p-1 text-center font-bold">{analysis ? analysis : "Normal"}</div>
+      <div></div>
     </div>
   );
 }
