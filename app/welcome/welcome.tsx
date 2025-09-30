@@ -1,19 +1,22 @@
 import { useState } from "react";
 import logoDark from "./logo-dark.svg";
+import { redirect, useNavigate } from "react-router";
 import logoLight from "./logo-light.svg";
 import TextType from "./TextType";
 import DotBackground from "./DotBackground";
-import { signIn, signUp } from "~/utils/auth-client";
+import { authClient, signIn, signUp } from "~/utils/auth-client";
 
 export function Welcome() {
   const [needCreate, setNeedCreate] = useState(false);
+  const navigate = useNavigate();
+
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassowrd, setConfirmPassword] = useState("");
   const [name, setName] = useState("");
 
-  async function handleSigIn(e: React.FormEvent) {
+  async function handleSignIn(e: React.FormEvent) {
   e.preventDefault();
   await signIn.email({ email, password, callbackURL: "/dashboard" });
 }
@@ -21,16 +24,16 @@ export function Welcome() {
 async function handleSignUp(e: React.FormEvent) {
   e.preventDefault();
   if (password && confirmPassowrd && password === confirmPassowrd) {
-    await signUp.email({ name, email, password, callbackURL: "/dashboard" });
+    await signUp.email({ name, email, password, callbackURL: "/dashboard"})
+
   }
 }
 
 
   return (
     <main className="relative text-white">
-  <DotBackground></DotBackground>{/* background canvas at z-0 */}
+  <DotBackground></DotBackground>
 
-  {/* Hero section with centered content */}
   <section className="relative z-0 min-h-screen flex flex-row items-center justify-center gap-20">
     <div className=" flex flex-rowjustify-center items-center gap-80">
         <div className="flex flex-col">
@@ -108,9 +111,47 @@ async function handleSignUp(e: React.FormEvent) {
             </form>
           ) : (
             <form
-              className="border border-white w-100 h-75 rounded-2xl flex flex-col gap-5 pt-10 items-center"
-              onSubmit={handleSigIn}
+              className="border border-white w-100 h-95 rounded-2xl flex flex-col gap-5 pt-10 items-center"
+              onSubmit={handleSignIn}
             >
+                <div className="flex flex-row gap-1">
+
+              <button
+                type="button"
+                className="flex items-center justify-center border border-white p-3 rounded-2xl hover:bg-white hover:text-black mb-2"
+                onClick={() => {
+                  authClient.signIn.social({ provider: "google" ,  callbackURL: "/dashboard" })
+                }}
+              > 
+               
+                <img src="/googleIcon.png" alt="Google" className="h-6 w-6 mr-2" />
+                Google
+              </button>
+               <button
+                type="button"
+                className="flex items-center justify-center border border-white p-3 rounded-2xl hover:bg-white hover:text-black mb-2"
+                onClick={() => {
+                  authClient.signIn.social({ provider: "discord",  callbackURL: "/dashboard"  })
+                }}
+              >     
+                <img src="/discordIcon.png" alt="Discord" className="h-5 w-6 mr-2" />
+                Discord
+              </button>
+
+              <button
+                type="button"
+                className="flex items-center justify-center border border-white p-3 rounded-2xl hover:bg-white hover:text-black mb-2"
+                onClick={() => {
+                  authClient.signIn.social({ provider: "github" ,  callbackURL: "/dashboard" })
+                }}
+              >     
+                <img src="/github-mark.png" alt="Github" className="h-6 w-6 mr-2" />
+                Github
+              </button>
+
+              
+              </div>
+
               <input
                 className="border border-white w-85 p-3 rounded-2xl"
                 placeholder="Email"
