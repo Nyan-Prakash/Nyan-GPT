@@ -38,7 +38,7 @@ export default function CameraStream({analysis, setAnalysis}: CameraStreamProp){
 useEffect(() => {
     const interval = setInterval(() => {
         captureAndAnalyze();
-    }, 1000);
+    }, 10000);
     return () => clearInterval(interval);
 }, []);
 

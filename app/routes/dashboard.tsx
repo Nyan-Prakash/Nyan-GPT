@@ -78,6 +78,10 @@ export default function Dashboard() {
 
       </div>
 
+      <a href="/api/auth/sign-in?provider=google">
+  Connect Google Calendar
+</a>
+
         <div className="flex flex-row items-center justify-center gap-2 pt-100 text-6xl font-thin mb-10">
             <TextType
             text={[
