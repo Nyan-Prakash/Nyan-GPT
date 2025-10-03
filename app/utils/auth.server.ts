@@ -13,7 +13,7 @@ export const auth = betterAuth({
     usePlural: true,    
   }),
   emailAndPassword: { enabled: true },
-  trustedOrigins: ["https://whoisyou-git-whoisyou-nyan-prakashs-projects.vercel.app", "https://whoisyou-sable.vercel.app/"],
+  trustedOrigins: ["https://*.vercel.app"],
   cookies: {
     sessionToken: { name: "better-auth.session", sameSite: "lax", secure: false },
   },
