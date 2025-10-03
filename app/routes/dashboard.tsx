@@ -528,9 +528,9 @@ Return JSON only.`
       await new Promise((resolve) => setTimeout(resolve, 1000));
       setCounter((prev) => (prev ?? 6) - 1);
     }   
-        setCameraActive(true);
-        await startGameCounter()
-        setText("");
+      setCameraActive(true);
+      await startGameCounter()
+      setText("");
   }
 
  async function startGameCounter() {
@@ -543,12 +543,11 @@ Return JSON only.`
   setMatches(prev => prev + 1);
 
   setCounter(5);
-  for (let i = 5; i > 0; i--) {
+  for (let i = 6; i > 0; i--) {
     await sleep(1000);
-    setCounter(prev => (prev ?? 5) - 1);
+    setCounter(prev => (prev ?? 6) - 1);
   }
   const score = await captureAndAnalyze(nextWord, round);
-  console.log(score);
   setGameState(prev => {
     if (!prev) return prev;
     const updated = prev.players?.map((p, idx) =>
@@ -558,7 +557,6 @@ Return JSON only.`
   });
 
   if (matchesRef.current >= 5) {
-        await sleep(3000);
 
         if (typeof gameState?.currentPlayer === "number" && gameState.currentPlayer + 1 === players.length)
         {
@@ -594,7 +592,9 @@ Return JSON only.`
 
   function startNewRound()
   {
-    if (gameState?.round !== undefined && gameState.round > 1)
+    console.log("New round");
+    console.log(gameState?.round);
+    if (gameState?.round !== undefined && gameState.round > 4)
     {
         setGameState(prev => {
                     if (!prev || typeof prev.currentPlayer !== "number") return prev;
@@ -626,6 +626,7 @@ Return JSON only.`
 
   function startNewPerson()
   {
+    console.log("Ne");
     const randomIndex = Math.floor(Math.random() * readyPhrase.length);
     setText(
       readyPhrase[randomIndex] +
