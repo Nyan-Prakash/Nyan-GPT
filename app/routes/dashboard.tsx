@@ -87,202 +87,189 @@ const sleep = (ms: number) => new Promise(res => setTimeout(res, ms));
 
 
   const charadesRounds = [
-    {
-      round: 0,
-      category: "Actions",
-      words: [
-        "Running",
-        "Jumping",
-        "Dancing",
-        "Swimming",
-        "Singing",
-        "Reading",
-        "Writing",
-        "Sleeping",
-        "Eating",
-        "Climbing",
-        "Driving",
-        "Cooking",
-        "Drawing",
-        "Laughing",
-        "Crying",
-        "Typing",
-        "Shouting",
-        "Walking",
-        "Skipping",
-        "Balancing",
-        "Yawning",
-        "Stretching",
-        "Hiding",
-        "Pointing",
-        "Kicking",
-        "Pushing",
-        "Pulling",
-        "Throwing",
-        "Catching",
-        "Spinning",
-        "Waving",
-        "Shaking hands",
-        "Boxing",
-        "Hugging",
-      ],
-    },
-    {
-      round: 1,
-      category: "Emotions",
-      words: [
-        "Happy",
-        "Sad",
-        "Angry",
-        "Excited",
-        "Scared",
-        "Surprised",
-        "Confused",
-        "Bored",
-        "Tired",
-        "Calm",
-        "Frustrated",
-        "Curious",
-        "Lonely",
-        "Annoyed",
-        "Joyful",
-        "Stressed",
-        "Anxious",
-        "Peaceful",
-        "Suspicious",
-        "Impatient",
-      ],
-    },
-    {
-      round: 2,
-      category: "Sports",
-      words: [
-        "Soccer",
-        "Basketball",
-        "Baseball",
-        "Tennis",
-        "Volleyball",
-        "Golf",
-        "Bowling",
-        "Boxing",
-        "Wrestling",
-        "Ping Pong",
-        "Badminton",
-        "Ice Skating",
-        "Skiing",
-        "Surfing",
-        "Archery",
-        "Cricket",
-        "Rugby",
-        "American Football",
-        "Field Hockey",
-        "Lacrosse",
-        "Track and Field",
-        "Pole Vaulting",
-        "Shot Put",
-        "Javelin",
-        "High Jump",
-        "Long Jump",
-        "Cycling",
-        "Mountain Biking",
-        "Skateboarding",
-        "Snowboarding",
-        "Fencing",
-        "Karate",
-        "Judo",
-        "Taekwondo",
-        "Windsurfing",
-        "Rowing",
-        "Canoeing",
-        "Kayaking",
-        "Sailing",
-      ],
-    },
-    {
-      round: 3,
-      category: "Famous People",
-      words: [
-        "Albert Einstein",
-        "Elvis Presley",
-        "Michael Jackson",
-        "Taylor Swift",
-        "Oprah Winfrey",
-        "Barack Obama",
-        "Donald Trump",
-        "Beyoncé",
-        "Lionel Messi",
-        "Serena Williams",
-        "Leonardo da Vinci",
-        "Cleopatra",
-        "Elon Musk",
-        "Ariana Grande",
-        "William Shakespeare",
-        "Nelson Mandela",
-        "Abraham Lincoln",
-        "George Washington",
-        "Martin Luther King Jr.",
-        "Queen Elizabeth II",
-        "Napoleon Bonaparte",
-        "Christopher Columbus",
-        "Isaac Newton",
-        "Winston Churchill",
-        "John F. Kennedy",
-        "Princess Diana",
-        "Steve Jobs",
-        "Bill Gates",
-        "Rihanna",
-        "Justin Bieber",
-        "LeBron James",
-        "Muhammad Ali",
-        "Lady Gaga",
-        "Adele",
-      ],
-    },
-    {
-      round: 4,
-      category: "Instruments",
-      words: [
-        "Guitar",
-        "Piano",
-        "Drums",
-        "Violin",
-        "Trumpet",
-        "Flute",
-        "Saxophone",
-        "Cello",
-        "Harp",
-        "Trombone",
-        "Accordion",
-        "Banjo",
-        "Clarinet",
-        "Ukulele",
-        "Xylophone",
-        "Bass Guitar",
-        "Electric Guitar",
-        "Double Bass",
-        "Oboe",
-        "Bassoon",
-        "French Horn",
-        "Tuba",
-        "Mandolin",
-        "Sitar",
-        "Tabla",
-        "Bagpipes",
-        "Didgeridoo",
-        "Maracas",
-        "Tambourine",
-        "Triangle",
-        "Harmonica",
-      ],
-    },
-  ];
+  {
+    round: 0,
+    category: "Actions",
+    words: [
+      "Running",
+      "Jumping",
+      "Dancing",
+      "Swimming",
+      "Singing",
+      "Reading",
+      "Writing",
+      "Sleeping",
+      "Eating",
+      "Climbing",
+      "Driving",
+      "Cooking",
+      "Drawing",
+      "Laughing",
+      "Crying",
+      "Typing",
+      "Shouting",
+      "Walking",
+      "Skipping",
+      "Balancing",
+      "Yawning",
+      "Stretching",
+      "Hiding",
+      "Pointing",
+      "Kicking",
+      "Pushing",
+      "Pulling",
+      "Throwing",
+      "Catching",
+      "Spinning",
+      "Waving",
+      "Shaking hands",
+      "Boxing",
+      "Hugging",
+    ],
+  },
+  {
+    round: 1,
+    category: "Emotions",
+    words: [
+      "Happy",
+      "Sad",
+      "Angry",
+      "Excited",
+      "Scared",
+      "Surprised",
+      "Confused",
+      "Bored",
+      "Tired",
+      "Calm",
+      "Frustrated",
+      "Curious",
+      "Lonely",
+      "Annoyed",
+      "Joyful",
+      "Stressed",
+      "Anxious",
+      "Peaceful",
+      "Suspicious",
+      "Impatient",
+    ],
+  },
+  {
+    round: 2,
+    category: "Sports",
+    words: [
+      "Soccer",
+      "Basketball",
+      "Baseball",
+      "Tennis",
+      "Volleyball",
+      "Golf",
+      "Bowling",
+      "Boxing",
+      "Wrestling",
+      "Ping Pong",
+      "Badminton",
+      "Ice Skating",
+      "Skiing",
+      "Surfing",
+      "Archery",
+      "Cricket",
+      "Rugby",
+      "American Football",
+      "Field Hockey",
+      "Lacrosse",
+      "Track and Field",
+      "Pole Vaulting",
+      "Shot Put",
+      "Javelin",
+      "High Jump",
+      "Long Jump",
+      "Cycling",
+      "Mountain Biking",
+      "Skateboarding",
+      "Snowboarding",
+      "Fencing",
+      "Karate",
+      "Judo",
+      "Taekwondo",
+      "Windsurfing",
+      "Rowing",
+      "Canoeing",
+      "Kayaking",
+      "Sailing",
+    ],
+  },
+  {
+    round: 3,
+    category: "Occupations",
+    words: [
+      "Doctor",
+      "Nurse",
+      "Teacher",
+      "Pilot",
+      "Firefighter",
+      "Police Officer",
+      "Chef",
+      "Farmer",
+      "Engineer",
+      "Mechanic",
+      "Artist",
+      "Musician",
+      "Actor",
+      "Writer",
+      "Photographer",
+      "Soldier",
+      "Dentist",
+      "Pharmacist",
+      "Judge",
+      "Bus Driver",
+      "Taxi Driver",
+      "Software Developer",
+      "Designer",
+    ],
+  },
+  {
+    round: 4,
+    category: "Simple Objects",
+    words: [
+      "Chair",
+      "Table",
+      "Spoon",
+      "Fork",
+      "Knife",
+      "Cup",
+      "Plate",
+      "Book",
+      "Phone",
+      "Computer",
+      "Pencil",
+      "Pen",
+      "Paper",
+      "Backpack",
+      "Bottle",
+      "Key",
+      "Clock",
+      "Lamp",
+      "Bed",
+      "Pillow",
+      "Blanket",
+      "Shoes",
+      "Hat",
+      "Glasses",
+      "Ball",
+      "Scissors",
+      "Remote",
+      "Flashlight",
+    ],
+  },
+];
+
 
   const roundInstruction = [
     "Rate how closely the person's action matches the word",
     "Rate how accurately the person's emotion matches the word",
     "Rate how closely the person's acting matches the sport",
-    "Rate how closely the person's portrayal matches the famous person",
-    "Rate how closely the person's acting matches the instrument being played",
+    "Rate how closely the person's portrayal the occupations",
+    "Rate how closely the person's acting matches the simple object",
   ];
 
   async function captureAndAnalyze(TheWord: string, round: number) {
@@ -311,45 +298,45 @@ const sleep = (ms: number) => new Promise(res => setTimeout(res, ms));
       0: "Actions",
       1: "Emotions",
       2: "Sports",
-      3: "Famous People",
-      4: "Instruments",
+      3: "Occupations",
+      4: "Simple Objects",
     };
     const roundIdx = round;
     const category = categoryByRound[roundIdx] ?? "Actions";
 
     const systemContent = `
-You are a strict judge in a charades game. You will see one image and a TARGET word within a CATEGORY.
-Your job is to score how well the image *visually* matches the TARGET, from 0–10 (0 = no match, 10 = perfect match).
+    You are a judge in a charades game. You will see one image and a TARGET word within a CATEGORY.
+    Your job is to score how well the image *visually* matches the TARGET, from 0–10 (0 = no match, 10 = perfect match).
 
-RULES
-- Do NOT guess the word; the TARGET is provided. Only rate how well the image matches it.
-- Consider body pose, hand shapes, facial expression.
-- Ignore background noise not relevant to the TARGET.
-- Keep reasoning short and visual (no speculation about unseen context).
-- Output MUST be valid JSON only, with this schema:
-  {
+    RULES
+    - Do NOT guess the word; the TARGET is provided. Only rate how well the image matches it.
+    - Consider body pose, hand shapes, facial expression.
+    - Ignore background noise not relevant to the TARGET.
+    - Keep reasoning short and visual (no speculation about unseen context).
+    - Output MUST be valid JSON only, with this schema:
+    {
     "score": number (integer 0-10),
     "rationale": string (<= 25 words, one sentence, visual cues only),
     "confidence": number (0.0-1.0),
     "category": string,
     "target": string
-  }
+    }
 
-SCORING RUBRICS (pick the one that matches CATEGORY)
-- Actions: body pose and movement cues (e.g., running stride, jumping posture, cooking gestures).
-- Emotions: facial expression (eyes, eyebrows, mouth), posture tension/relaxation.
-- Sports: sport-specific posture/gear (e.g., racket swing, ball handling, stance, uniform).
-- Famous People: iconic visual traits (hair, outfit, glasses/props, signature pose). Prefer strong iconic cues; rate low if generic.
-- Instruments: correct instrument shape/hold/hand placement, posture typical of playing that instrument.
+    SCORING RUBRICS (pick the one that matches CATEGORY)
+    - Actions: body pose and movement cues (e.g., running stride, jumping posture, cooking gestures).
+    - Emotions: facial expression (eyes, eyebrows, mouth), posture tension/relaxation.
+    - Sports: sport-specific posture.
+    - Occupations: visual cues typical of the job (e.g., doctor: stethoscope gesture, chef: cooking motion, teacher: pointing or writing).
+    - Simple Objects: use hand shapes and body position to visually represent the object (e.g.,sitting in a chair for "chair", miming typing for "computer", forming a rectangle for "book").
 
-CALIBRATION
-- 9–10: Immediately and unambiguously reads as the TARGET.
-- 7–8: Mostly right; a few cues off or missing.
-- 5–6: Some cues match, but significant ambiguity.
-- 3–4: Weak resemblance; isolated or accidental cues.
-- 0–2: No meaningful match.
+    CALIBRATION
+    - 9–10: Immediately and unambiguously reads as the TARGET.
+    - 7–8: Mostly right; a few cues off or missing.
+    - 5–6: Some cues match, but significant ambiguity.
+    - 3–4: Weak resemblance; isolated or accidental cues.
+    - 0–2: No meaningful match.
 
-Return JSON only. No extra text.
+    Return JSON only. No extra text.
     `.trim();
 
     // A couple teeny few-shot anchors (text-only to anchor structure)
@@ -658,7 +645,7 @@ Return JSON only.`
                 {guess}
               </div>
               <div className="text-9xl text-white text-center animate-pulse">
-                {(counter ?? 1) - 0}
+                {counter === -1 ? 0 : (counter ?? 1) - 0}
               </div>
             </div>
         }
@@ -747,7 +734,7 @@ Return JSON only.`
                 {text}
               </div>
               <div className="text-9xl text-white text-center animate-pulse">
-                {(counter ?? 1) - 1}
+                {(counter ?? 1) - 0}
               </div>
             </div>
           }
